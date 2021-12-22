@@ -18,7 +18,7 @@ public class Wish {
 
     private String description;
 
-    private boolean fulfilled;
+    private boolean fulfill;
 
     @ManyToOne
     private Person owner;

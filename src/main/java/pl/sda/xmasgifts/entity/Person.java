@@ -3,7 +3,9 @@ package pl.sda.xmasgifts.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Builder
@@ -14,17 +16,15 @@ import java.util.Set;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private long id;
+    private UUID id;
 
     private String username;
 
     private String email;
 
     @OneToMany
-    private Set<Wish> wishes;
+    private Set<Wish> wishes = new HashSet<>();
 
     @OneToMany
-    private Set<Wish> gifts;
+    private Set<Wish> gifts = new HashSet<>();
 }
