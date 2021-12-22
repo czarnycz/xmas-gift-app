@@ -31,7 +31,7 @@ public class JpaXmasGiftsService implements XmasGiftService{
     @Transactional
     public Optional<Wish> addPersonWish(Wish wish, UUID personId) {
         Optional<Person> optionalPerson = personRepository.findById(personId);
-        if(optionalPerson.isEmpty()){
+        if(!optionalPerson.isPresent()){
             return Optional.empty();
         }
         Person person = optionalPerson.get();
